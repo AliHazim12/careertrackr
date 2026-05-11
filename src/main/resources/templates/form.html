@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Application</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+
+<h1>Job Application Form</h1>
+
+<form th:action="@{/applications/save}"
+      th:object="${jobApplication}"
+      method="post">
+
+    <div th:if="${#fields.hasErrors('*')}" style="color: red;">
+        <p>Please fix the errors below.</p>
+    </div>
+
+    <input type="hidden" th:field="*{id}">
+
+    <label>Company Name:</label>
+    <input type="text" th:field="*{companyName}">
+    <span th:if="${#fields.hasErrors('companyName')}"
+          th:errors="*{companyName}"
+          style="color: red;"></span>
+    <br><br>
+
+    <label>Role Title:</label>
+    <input type="text" th:field="*{roleTitle}">
+    <span th:if="${#fields.hasErrors('roleTitle')}"
+          th:errors="*{roleTitle}"
+          style="color: red;"></span>
+    <br><br>
+
+    <label>Status:</label>
+    <select th:field="*{status}">
+        <option value="">Select Status</option>
+
+        <option th:each="status : ${statuses}"
+                th:value="${status}"
+                th:text="${status}">
+        </option>
+    </select>
+
+    <span th:if="${#fields.hasErrors('status')}"
+          th:errors="*{status}"
+          style="color: red;"></span>
+    <br><br>
+
+    <label>Salary Range:</label>
+    <input type="text" th:field="*{salaryRange}">
+    <br><br>
+
+    <label>Applied Date:</label>
+    <input type="date" th:field="*{appliedDate}">
+    <span th:if="${#fields.hasErrors('appliedDate')}"
+          th:errors="*{appliedDate}"
+          style="color: red;"></span>
+    <br><br>
+
+    <label>Follow Up Date:</label>
+    <input type="date" th:field="*{followUpDate}">
+    <br><br>
+
+    <label>Notes:</label>
+    <textarea th:field="*{notes}"></textarea>
+    <br><br>
+
+    <button type="submit">Save Application</button>
+
+</form>
+
+<br>
+
+<a href="/">Back to Home</a>
+
+</body>
+</html>
