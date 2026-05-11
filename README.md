@@ -59,6 +59,18 @@ This project was built as a portfolio-quality full-stack Java web application us
 
 ---
 
+# CRUD Operations
+
+The application supports full CRUD functionality:
+
+Operation	          Description
+
+- Create - Add new applications
+- Read - View all applications
+- Update - Edit application information
+- Delete - Remove applications
+
+
 ## Validation
 
 The application uses Jakarta Validation annotations including:
