@@ -52,12 +52,21 @@ This project was built as a portfolio-quality full-stack Java web application us
 - PostgreSQL (production)
 
 ## Deployment / DevOps
-- Docker
-- Render
-- Neon PostgreSQL
-- GitHub
+- GitHub for source control
+- Render for cloud hosting
+- Neon for PostgreSQL hosting
+- Docker for containerized deployment
 
 ---
+
+## Validation
+
+The application uses Jakarta Validation annotations including:
+
+- @NotBlank
+- @NotNull
+
+Validation prevents incomplete or invalid form submissions.
 
 # Application Architecture
 
@@ -71,3 +80,4 @@ Service Layer
 Repository Layer
 ↓
 Database Layer
+
